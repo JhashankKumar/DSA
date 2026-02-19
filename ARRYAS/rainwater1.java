@@ -18,7 +18,6 @@ public class rainwater1 {
         for(int i=0;i<n;i++){
             //waterlevel=min(leftmax bound,rightmax bound)
             int waterlevel=Math.min(leftMax[i],rightMax[i]);
-
             //trapped water = waterlevel-height[i]
             trappedwater += waterlevel-height[i];
         }
