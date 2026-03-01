@@ -23,8 +23,8 @@ public class SubSetCheck{
         System.out.println("isSubset: " + isSubset);
     }
     private static boolean isSubset(int array_1[], int array_2[], int array_1_size, int array_2_size){
-        HashSet<Integer> set_1 = new HashSet<>();
-        HashSet<Integer> set_2 = new HashSet<>();   
+        Set<Integer> set_1 = new HashSet<>();
+        Set<Integer> set_2 = new HashSet<>();   
         for(int i = 0;i<array_1_size;i++){
             set_1.add(array_1[i]);
         }
