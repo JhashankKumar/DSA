@@ -23,6 +23,7 @@ public class MixedInput {
             names[i] = parts[0];
             marks[i] = Integer.parseInt(parts[1]);  
         }
+        scanner.close();
         System.out.println("Student Details:");
         for (int i = 0; i < numStudents; i++) {
             System.out.println(names[i] + " " + marks[i]);
