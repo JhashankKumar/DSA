@@ -1,5 +1,3 @@
-import java.util.*;
-
 public class FindASCII {
     // Given a string, find the ASCII value of each character in the string.
     public static void main(String[] args) {
