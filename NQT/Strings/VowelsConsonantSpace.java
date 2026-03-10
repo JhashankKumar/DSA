@@ -1,4 +1,4 @@
-public class VowelsConsonant {
+public class VowelsConsonantSpace {
     // Given a string, count the number of vowels and consonants and spaces in it.
     public static void main(String[] args) {
         String input = "Hello World";

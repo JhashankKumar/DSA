@@ -1,4 +1,4 @@
-package NQT.TrickyInputs;
+package TrickyInputs;
 import java.util.*;
 public class ArrayInputSpaceSeperated {
     public static void main(String[] args) {
