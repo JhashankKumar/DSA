@@ -11,10 +11,12 @@ public class MostRepeatedCharacter {
         int maxCount = 0;
 
         for (char ch : input.toCharArray()) {
-            count[ch - 'a']++;
-            if (count[ch - 'a'] > maxCount) {
-                maxCount = count[ch - 'a'];
-                mostRepeatedChar = ch;
+            if (ch != ' ') { // Ignore spaces
+                count[ch - 'a']++;
+                if (count[ch - 'a'] > maxCount) {
+                    maxCount = count[ch - 'a'];
+                    mostRepeatedChar = ch;
+                }
             }
         }
 
