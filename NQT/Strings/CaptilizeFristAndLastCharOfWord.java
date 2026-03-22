@@ -1,3 +1,5 @@
+package Strings;
+
 public class CaptilizeFristAndLastCharOfWord {
     //for a given string, capitalize the first and last character of each word in the string.
     public static void main(String[] args) {
