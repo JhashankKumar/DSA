@@ -13,6 +13,7 @@ public class AtomorphicNumber {
     private static boolean isAtomorphic(int number) {
         int square = number * number;
         String numberStr = String.valueOf(number);
+        // String numberStr = Integer.toString(number);
         String squareStr = String.valueOf(square);
         return squareStr.endsWith(numberStr);
     }
