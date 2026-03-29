@@ -1,6 +1,7 @@
 package Numbers;
 
 public class StrongNumberCheck {
+    //strong number is a number whose sum of the factorial of digits is equal to the original number.
     public static void main(String[] args) {
         int number = 145; // You can change this value to test with different numbers
         boolean isStrong = isStrongNumber(number);

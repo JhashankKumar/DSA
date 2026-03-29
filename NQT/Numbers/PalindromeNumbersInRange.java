@@ -30,7 +30,8 @@ public class PalindromeNumbersInRange {
 
     //using string
     private static boolean isPalindromeString(int number) {
-        String str = Integer.toString(number);
+        // String str = Integer.toString(number);
+        String str = String.valueOf(number);
         String reversedStr = new StringBuilder(str).reverse().toString();
         return str.equals(reversedStr);
     }

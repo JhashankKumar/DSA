@@ -1,4 +1,4 @@
-package Numbers;
+package Numbers.Progressions;
 
 public class ArthmeticProgressionSum {
     public static void main(String[] args) {
@@ -9,7 +9,7 @@ public class ArthmeticProgressionSum {
         int sum = calculateAPSum(firstTerm, commonDifference, numberOfTerms);
         int sumUsingLoop = calculateAPSumUsingLoop(firstTerm, commonDifference, numberOfTerms);
         System.out.println("The sum of the first " + numberOfTerms + " terms of the arithmetic progression is: " + sum);
-        System.out.println("The sum of the first " + numberOfTerms + " terms of the arithmetic progression (using loop) is: " + sumUsingLoop);
+        System.out.println("The sum of the first " + numberOfTerms + " terms of the arithmetic progression (using loop) is: " + sumUsingLoop); 
     }
 
     private static int calculateAPSum(int firstTerm, int commonDifference, int numberOfTerms) {

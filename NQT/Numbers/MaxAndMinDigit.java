@@ -2,7 +2,9 @@ package Numbers;
 
 public class MaxAndMinDigit {
     public static void main(String[] args) {
-        int number = 12345; // Example number
+        // int number = 12345; // Example number
+        String numberStr = "12345"; // You can change this value to test with different numbers
+        int number = Integer.parseInt(numberStr);
         int maxDigit = findMaxDigit(number);
         int minDigit = findMinDigit(number);
         System.out.println("Maximum digit in " + number + " is: " + maxDigit);
