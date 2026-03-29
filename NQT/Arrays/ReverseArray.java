@@ -30,4 +30,13 @@ public class ReverseArray {
             right--;
         }
     }
+
+    // function that return the reversed array using inbuilt function
+    private static int[] reverseArrayUsingInbuiltFunction(int[] array) {
+        int[] reversedArray = new int[array.length];
+        for (int i = 0; i < array.length; i++) {
+            reversedArray[i] = array[array.length - 1 - i];
+        }
+        return reversedArray;
+    }
 }

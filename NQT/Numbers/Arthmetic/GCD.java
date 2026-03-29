@@ -1,4 +1,4 @@
-package Numbers;
+package Numbers.Arthmetic;
 
 public class GCD {
     public static void main(String[] args) {

@@ -1,4 +1,4 @@
-package Numbers;
+package Numbers.Arthmetic;
 
 public class LCM {
     public static void main(String[] args) {

@@ -1,4 +1,4 @@
-package Numbers;
+package Numbers.PrimeNumber;
 
 public class PrimeNumberCheck {
     public static void main(String[] args) {
