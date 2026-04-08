@@ -21,7 +21,7 @@ public class ActivitySelect{
                 lastend = end[i];
             }
         }
-        System.out.println("max activity"+ " "+maxAct);
+        System.out.println("max activity in end time sorted array"+ " "+maxAct);
         for(int i=0;i<ans.size();i++){
             System.out.print("A"+ans.get(i)+" ");
         }
@@ -40,7 +40,7 @@ public class ActivitySelect{
             activities[i][2]= end[i];
         }
         //lamda function 
-        Arrays.sort(activities,Comparator.comparingDouble(o->o[2]));
+        Arrays.sort(activities,Comparator.comparingInt(o->o[2]));
 
 
         //end time basis sorted
@@ -52,14 +52,14 @@ public class ActivitySelect{
         ans.add(activities[0][0]);
         int lastend = activities[0][2];
         for(int i=1;i<end.length;i++){
-            if(activities[i][1]>=lastend){
+            if(activities[i][1]>=lastend){ //start time of current activity is greater than or equal to end time of last selected activity
                 //activity select
                 maxAct++;
                 ans.add(activities[i][0]);
                 lastend = activities[i][2];
             }
         }
-        System.out.println("max activity"+ " "+maxAct);
+        System.out.println("max activity in end time sorted not array"+ " "+maxAct);
         for(int i=0;i<ans.size();i++){
             System.out.print("A"+ans.get(i)+" ");
         }
