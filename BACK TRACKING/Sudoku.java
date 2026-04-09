@@ -1,5 +1,3 @@
-package BackTracking;
-
 public class Sudoku {
     //this isSafe function checks wether the element placed in box is safe to place it there
     //that means it verify wether the value exist in that row or in that same column before only

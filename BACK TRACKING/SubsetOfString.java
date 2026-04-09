@@ -1,5 +1,3 @@
-package BackTracking;
-
 public class SubsetOfString {
     public static void findSubSet(String str, int i,String ans){
         if(i == str.length()){
