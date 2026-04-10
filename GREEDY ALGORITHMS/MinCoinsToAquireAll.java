@@ -26,15 +26,19 @@ total amount. So, finally Time Complexity: O(n log n).
 import java.util.*;
 public class MinCoinsToAquireAll {
     public static void main(String[] args){
-        Scanner sc = Scanner(System.in);
+        Scanner sc = new Scanner(System.in);
         int length = sc.nextInt();
         int coins[] = new int[length];
+        for(int i = 0; i < length; i++){
+            coins[i] = sc.nextInt();
+        }
         int k = sc.nextInt();
         int cost = minRequiredCost(coins, k, length);
-
+        System.out.println(cost);
+        sc.close();
     }
     public static int minRequiredCost(int coins[], int k, int length){
-        int minCoinsRequired = (int) Math.ceil(length/(k+1));
+        int minCoinsRequired = (int) Math.ceil((double)length/(k+1));
         int cost =  cost(coins, minCoinsRequired);
         return cost;
 
