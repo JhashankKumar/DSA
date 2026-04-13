@@ -12,6 +12,7 @@ public class CreatingGraph{
     }
     public static void main(String[] args) {
         int v=5;
+        @SuppressWarnings("unchecked")
         ArrayList<Edge> graph[] = new ArrayList[v];//null Empty ArrayList
         for(int i=0;i<v;i++){
             graph[i] =new ArrayList<>();
