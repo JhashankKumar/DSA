@@ -68,18 +68,33 @@ public class HeightOfTree {
     }
 
     public static void main(String[] args) {
-        Node root = new Node(1);
-        root.left = new Node(2);
-        root.right= new Node(3);
-        root.left.left = new Node(4);
-        root.left.right = new Node(5);
-        root.right.left = new Node(6);
-        root.right.right = new Node(7);
+        // Node root = new Node(1);
+        // root.left = new Node(2);
+        // root.right= new Node(3);
+        // root.left.left = new Node(4);
+        // root.left.right = new Node(5);
+        // root.right.left = new Node(6);
+        // root.right.right = new Node(7);
+        // System.out.println(height(root));
+        // System.out.println(count(root));
+        // System.out.println(sum(root));
+        // System.out.println(diameter(root));
+        // System.out.println(diameter2(root).ht);
+        
+        //array representation of tree
+        int nodes[] = {1,2,3,4,5,6,7};
+        Node root = createTree(nodes, 0);
         System.out.println(height(root));
-        System.out.println(count(root));
-        System.out.println(sum(root));
-        System.out.println(diameter(root));
-        System.out.println(diameter2(root).ht);
-    
+            
+    }
+
+    public static Node createTree(int nodes[], int index){
+        if(index>=nodes.length){
+            return null;
+        }
+        Node newNode = new Node(nodes[index]);
+        newNode.left = createTree(nodes, 2*index+1);
+        newNode.right = createTree(nodes, 2*index+2);
+        return newNode;
     }
 }
