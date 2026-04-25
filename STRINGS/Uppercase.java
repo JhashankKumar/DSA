@@ -17,9 +17,7 @@ public class Uppercase {
     }
     public static void main(String[] args) {
         String str = "hi i am jhashank";
-        System.out.println(uppercase(str));
-        Collection.sort(str);
-        System.out.println(str);
+        System.out.println(uppercase(str)); // Output: "Hi I Am Jhashank"
     }
     
 }
