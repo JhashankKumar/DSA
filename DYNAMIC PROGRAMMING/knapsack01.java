@@ -1,3 +1,26 @@
+// 0-1 Knapsack Problem
+/*
+Given two arrays, val[] and wt[], where each element represents the value and weight of an item 
+respectively, also given an integer W representing the maximum capacity of the knapsack 
+(the total weight it can hold).Put the items into the knapsack such that the sum of values associated 
+with them is the maximum possible, without exceeding the capacity W.
+
+Note: We can either include an item completely or exclude it entirely - we cannot include a fraction 
+of an item.
+
+Examples:
+
+Input:  W = 4, val[] = [1, 2, 3], wt[] = [4, 5, 1]
+Output: 3
+Explanation: There are two items with weight less than or equal to 4. If we select the item with weight 
+4, the possible value is 1, and if we select the item with weight 1, the possible value is 3. Hence, 
+the maximum possible value is 3. We cannot put both items with weights 4 and 1 together because the 
+capacity of the bag is 4.
+
+Input: W = 3, val[] = [1, 2, 3], wt[] = [4, 5, 6]
+Output: 0 
+Explanation: All the item weights are greater than the knapsack capacity.
+*/
 public class knapsack01 {
     //recursion
     public static int knapsack_rec(int val[], int wt[], int W, int n){
