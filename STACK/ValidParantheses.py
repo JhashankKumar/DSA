@@ -5,10 +5,13 @@ def valid_parentheses(s: str) -> bool:
     for char in s:
         if char in mapping:
             top_element = stack.pop() if stack else '#'
+            print(f"Stack after popping '{top_element}': {stack}")  # Debug statement to show stack state
             if mapping[char] != top_element:
                 return False
         else:
-            stack.append(char)
+            if char in mapping.values():
+                stack.append(char)
+            print(f"Stack after pushing '{char}': {stack}")  # Debug statement to show stack state
     
     return not stack
 
