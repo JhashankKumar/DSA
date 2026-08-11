@@ -1,4 +1,4 @@
-package TrickyInputs;
+package TrickyInputs.Java;
 import java.util.*;
 public class ArrayInputSpaceSeperated {
     public static void main(String[] args) {

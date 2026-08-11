@@ -1,4 +1,4 @@
-package TrickyInputs;
+package TrickyInputs.Java;
 import java.util.*;
 public class SingleIntegerInput {
     public static void main(String[] args) {
