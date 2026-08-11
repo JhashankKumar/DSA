@@ -1,4 +1,4 @@
-package NumberSystem;
+package NumberSystem.Java;
 
 public class DecimalToOctal {
     public static void main(String[] args) {

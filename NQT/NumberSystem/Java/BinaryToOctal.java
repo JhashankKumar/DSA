@@ -1,4 +1,4 @@
-package NumberSystem;
+package NumberSystem.Java;
 
 public class BinaryToOctal {
     public static void main(String[] args) {
