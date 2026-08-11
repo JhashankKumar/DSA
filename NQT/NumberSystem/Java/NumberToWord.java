@@ -1,4 +1,4 @@
-package NumberSystem;
+package NumberSystem.Java;
 
 public class NumberToWord {
     private static final String[] units = {
