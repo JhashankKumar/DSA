@@ -1,4 +1,4 @@
-package TrickyInputs;
+package TrickyInputs.Java;
 import java.util.*;
 
 public class CommaSeperatedInput {
