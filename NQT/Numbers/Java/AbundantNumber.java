@@ -1,4 +1,4 @@
-package Numbers;
+package Numbers.Java;
 import java.util.*;
 
 public class AbundantNumber {

@@ -1,4 +1,4 @@
-package Numbers;
+package Numbers.Java;
 
 public class Factorial {
     public static void main(String[] args) {
