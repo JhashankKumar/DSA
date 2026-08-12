@@ -1,3 +1,4 @@
+package Java;
 
 public class MinimumPartition {
     public static int minpartition(int arr[]){

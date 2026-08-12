@@ -1,3 +1,4 @@
+package Java;
 public class MountainRanges {
     public static int ranges(int n){
         int dp[] = new int[n+1];

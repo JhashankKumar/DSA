@@ -1,3 +1,4 @@
+package Java;
 public class LongestSS{
     public static int longestcommonsubstring(String str1, String str2 ){
         int n=str1.length();
