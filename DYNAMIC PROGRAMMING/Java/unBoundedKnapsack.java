@@ -1,3 +1,4 @@
+package Java;
 public class unBoundedKnapsack {
     public static int  unboundedknapsack(int val[], int wt[], int W) {
         int n = val.length;
