@@ -1,4 +1,4 @@
-package Numbers;
+package Numbers.Java;
 
 public class PositiveNegativeCheck {
     public static void main(String[] args) {

@@ -1,4 +1,4 @@
-package Numbers;
+package Numbers.Java;
 
 public class PrimeNumbersSumOfGivenPosition {
     // two postions are given, find the sum of prime numbers comes at those two

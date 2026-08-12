@@ -1,4 +1,4 @@
-package Numbers;
+package Numbers.Java;
 
 public class StrongNumberCheck {
     //strong number is a number whose sum of the factorial of digits is equal to the original number.

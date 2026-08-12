@@ -1,4 +1,4 @@
-package Numbers;
+package Numbers.Java;
 
 public class SumInRange {
     // This program calculates the sum of all numbers in a given range (inclusive).
