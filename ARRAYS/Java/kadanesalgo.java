@@ -1,3 +1,4 @@
+package Java;
 public class kadanesalgo {
     public static void kadanes(int numbers[]){
         int max_sum=Integer.MIN_VALUE;

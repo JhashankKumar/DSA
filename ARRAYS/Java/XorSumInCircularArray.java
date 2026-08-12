@@ -1,3 +1,4 @@
+package Java;
 /*
 You are given an array ARR which has N integers. You want to construct a new array RES using ARR 
 by following the below algorithm:
