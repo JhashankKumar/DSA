@@ -1,3 +1,4 @@
+package Java;
 
 public class stocks {
     public static int buyandsellstock(int prices[]){

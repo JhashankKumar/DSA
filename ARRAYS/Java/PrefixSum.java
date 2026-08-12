@@ -1,3 +1,4 @@
+package Java;
 public class PrefixSum {
     public static void subarray(int numbers[]){
         int current_sum=0;

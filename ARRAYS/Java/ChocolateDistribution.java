@@ -1,3 +1,4 @@
+package Java;
 // Chocolate Distribution Problem
 /*
 Given an array arr[] of n integers where arr[i] represents the number of chocolates in ith packet. 

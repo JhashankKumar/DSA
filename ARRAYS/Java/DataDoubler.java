@@ -1,3 +1,4 @@
+package Java;
 /*
 The "Data Doubler" Algorithm:
 Imagine you are working as an intern at a music streaming company. You Doss wants to create a new 
