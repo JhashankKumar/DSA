@@ -1,6 +1,6 @@
-package Strings;
+package Strings.Java;
 
-public class CaptilizeFristAndLastCharOfWord {
+public class CapitalizeFirstAndLastCharOfWord {
     //for a given string, capitalize the first and last character of each word in the string.
     public static void main(String[] args) {
         String input = "hello world is java programming";
