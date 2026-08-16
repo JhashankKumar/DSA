@@ -1,3 +1,5 @@
+package Strings.Java;
+
 public class ChangeCaseOfCharacters {
     // Given a string, change the case of each character in the string.
     public static void main(String[] args) {
