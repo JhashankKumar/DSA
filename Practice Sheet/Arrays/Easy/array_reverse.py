@@ -89,6 +89,21 @@ def reverse_array_single_pointer(arr):
     
     return arr
 
+
+"""
+Using Inbuilt Methods - O(n) Time and O(1) Space
+The idea is to use inbuilt reverse methods available across different languages.
+
+Time Complexity: O(n), the reverse method has linear time complexity.
+Auxiliary Space: O(1) Additional space is not used to store the reversed array, 
+as the in-built array method swaps the values in-place.
+"""
+
+def reverse_array_inbuilt(arr):
+    arr.reverse()  # Using the inbuilt reverse method
+    return arr
+
+
 if __name__ == "__main__":
     arr = [1, 4, 3, 2, 6, 5]
 
