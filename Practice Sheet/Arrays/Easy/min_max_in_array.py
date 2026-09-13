@@ -57,6 +57,19 @@ def min_max_iterating(arr):
     return [min_elem, max_elem]
 
 
+"""
+Approach 3:
+In built functions - O(n) Time and O(1) Space
+The idea is to use the built-in functions min() and max() to find the minimum and 
+maximum elements in the array. The min() function returns the smallest element in the array, 
+while the max() function returns the largest element in the array. This approach is simple and 
+efficient, as it leverages the optimized implementations of these functions provided by the 
+programming language.
+"""
+
+def min_max_builtin(arr):
+    return [min(arr), max(arr)]
+
 if __name__ == "__main__":
     # Test cases
     arr1 = [3, 5, 4, 1, 9]
