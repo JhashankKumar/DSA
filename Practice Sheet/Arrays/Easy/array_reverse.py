@@ -69,6 +69,25 @@ def reverse_array_two_pointers(arr):
     
     return arr
 
+"""
+[Expected Approach - 2] Using Single Pointer - O(n) Time and O(1) Space
+The idea is to iterate over the first half of the array and swap each element with
+its corresponding element from the end. So, while iterating over the first half, 
+any element at index i is swapped with the element at index (n - i - 1).
+
+Time Complexity: O(n), the loop runs through half of the array, so it's linear with respect 
+to the array size.
+Auxiliary Space: O(1), no extra space is required, therefore we are reversing the array in-place.
+"""
+
+def reverse_array_single_pointer(arr):
+    n = len(arr)
+    
+    for i in range(n // 2):
+        # Swap elements at index i and (n - i - 1)
+        arr[i], arr[n - i - 1] = arr[n - i - 1], arr[i]
+    
+    return arr
 
 if __name__ == "__main__":
     arr = [1, 4, 3, 2, 6, 5]
