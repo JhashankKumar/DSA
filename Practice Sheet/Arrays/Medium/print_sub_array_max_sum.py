@@ -51,15 +51,42 @@ For each element, we have two choices:
 
 Choice 1: Extend the maximum sum subarray ending at the previous element by adding the current 
 element to it. In this case, the ending index of the current subarray increases by 1.
+
 Choice 2: Start a new subarray starting from the current element. In this case, the starting index 
 of the current subarray updates to the current index.
+
 If the maximum sum ending at an element becomes greater than the result array, we update the start 
 and end of result subarray with the start and end of current subarray respectively.
 """
 
+def print_max_sum_subarray_kadane(arr):
+    n = len(arr)
+    max_sum = float('-inf')  # Initialize max_sum to negative infinity
+    current_sum = 0
+    start_index = 0
+    end_index = 0
+    temp_start_index = 0
+    
+    for i in range(n):
+        current_sum += arr[i]
+        
+        if current_sum > max_sum:
+            max_sum = current_sum
+            start_index = temp_start_index
+            end_index = i
+        
+        if current_sum < 0:
+            current_sum = 0
+            temp_start_index = i + 1
+    
+    # Print the subarray with maximum sum
+    print("Subarray with maximum sum:", arr[start_index:end_index + 1])
+
 if __name__ == "__main__":
     arr1 = [2, 3, -8, 7, -1, 2, 3]
     print_max_sum_subarray(arr1)  # Output: [7, -1, 2, 3]
+    print_max_sum_subarray_kadane(arr1)  # Output: [7, -1, 2, 3]
 
     arr2 = [-2, -5, 6, -2, -3, 1, 5, -6]
     print_max_sum_subarray(arr2)  # Output: [6, -2, -3, 1, 5]
+    print_max_sum_subarray_kadane(arr2)  # Output: [6, -2, -3, 1, 5]
