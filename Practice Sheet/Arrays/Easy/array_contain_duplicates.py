@@ -32,12 +32,27 @@ def contains_duplicates(arr):
                 return True
     return False
 
+"""
+Approach 2: By using HashSet Data Structure – O(n) Time and O(n) Space
 
+The main idea is to insert each value into a HashSet, which only stores unique elements. 
+If any insertion fails or if any elements are already exits in HashSet, it means a duplicate exists, 
+so return true. If all insertions succeed, it indicates that all elements are unique, so return false.
+"""
 
+def contains_duplicates_using_hashset(arr):
+    seen = set()
+    for num in arr:
+        if num in seen:
+            return True
+        seen.add(num)
+    return False
 
 if __name__ == "__main__":
     arr1 = [4, 5, 6, 4]
     print(contains_duplicates(arr1))  # Output: True
+    print(contains_duplicates_using_hashset(arr1))  # Output: True
 
     arr2 = [1, 2, 3, 4]
     print(contains_duplicates(arr2))  # Output: False
+    print(contains_duplicates_using_hashset(arr2))  # Output: False
