@@ -67,3 +67,14 @@ def chocolate_distribution(arr, m):
         min_diff = min(min_diff, current_diff)
 
     return min_diff
+
+if __name__ == "__main__":
+    arr = [7, 3, 2, 4, 9, 12, 56]
+    m = 3
+    print(chocolate_distribution(arr, m))  # Output: 2
+    print(chocolate_distribution_naive(arr, m))  # Output: 2
+
+    arr = [7, 3, 2, 4, 9, 12, 56]
+    m = 5
+    print(chocolate_distribution(arr, m))  # Output: 7
+    print(chocolate_distribution_naive(arr, m))  # Output: 7
