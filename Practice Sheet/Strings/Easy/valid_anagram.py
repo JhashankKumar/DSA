@@ -49,11 +49,52 @@ def is_anagram_frequency(s1, s2):
     # Check if all frequencies are zero
     return all(count == 0 for count in freq)
 
+"""
+Approach 3 : Using HashMap - O(n + m) Time and O(n + m) Space
+We can use a hashmap (dictionary) to count the frequency of each character in both strings.
+We iterate through the first string and increment the count for each character in the hashmap.
+Then, we iterate through the second string and decrement the count for each character in the hashmap.
+If the two strings are anagrams, all counts in the hashmap should be zero at the end. If any count is not zero, the strings are not anagrams.
+
+Steps
+
+-> First, count the occurrences of each character in the first string using a HashMap.
+-> Then, iterate through the second string and decrement the corresponding count for each character in the same HashMap.
+-> After processing both strings, check the HashMap: if all character counts are zero, the strings are anagrams
+-> Any non-zero count indicates a mismatch in character frequency, meaning the strings are not anagrams.
+"""
+
+def is_anagram_hashmap(s1, s2):
+    # If lengths are different, they can't be anagrams
+    if len(s1) != len(s2):
+        return False
+
+    # Create a hashmap to count character frequencies
+    char_count = {}
+
+    # Count frequency of each character in the first string
+    for char in s1:
+        char_count[char] = char_count.get(char, 0) + 1
+
+    # Decrement frequency based on the second string
+    for char in s2:
+        if char not in char_count:
+            return False
+        char_count[char] -= 1
+        if char_count[char] < 0:
+            return False
+
+    # Check if all counts are zero
+    return all(count == 0 for count in char_count.values())
+
+    
 if __name__ == "__main__":
     s1 = "geeks"
     s2 = "kseeg"
 
     result_sorting = is_anagram_sorting(s1, s2)
     result_frequency = is_anagram_frequency(s1, s2)
+    result_hashmap = is_anagram_hashmap(s1, s2)
     print(f"Are '{s1}' and '{s2}' anagrams (using sorting)? {result_sorting}")
     print(f"Are '{s1}' and '{s2}' anagrams (using frequency counting)? {result_frequency}")
+    print(f"Are '{s1}' and '{s2}' anagrams (using hashmap)? {result_hashmap}")
