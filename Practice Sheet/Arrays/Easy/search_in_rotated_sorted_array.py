@@ -83,18 +83,54 @@ def search_in_rotated_sorted_array_two_pass(arr, key):
         return binary_search(arr, 0, pivot - 1, key)
     return binary_search(arr, pivot + 1, n - 1, key)
 
+"""
+ Approach 3: Using Single Binary Search - O(log n) Time and O(1) Space
+This approach applies a modified version of binary search directly to the entire rotated array. 
+At every iteration, the middle element is checked against the key. If it’s not the key, 
+we determine whether the left half or right half is sorted by comparing values at arr[lo] 
+and arr[mid]. If the left half is sorted and the key lies within its range, 
+we adjust hi = mid - 1; otherwise, we shift lo = mid + 1. If the right half is sorted 
+and the key lies within its range, we move lo = mid + 1; else, hi = mid - 1.
+"""
+
+def search_in_rotated_sorted_array_single_pass(arr, key):
+    low, high = 0, len(arr) - 1
+
+    while low <= high:
+        mid = (low + high) // 2
+
+        if arr[mid] == key:
+            return mid
+
+        if arr[low] <= arr[mid]:  # Left half is sorted
+            if arr[low] <= key < arr[mid]:
+                high = mid - 1
+            else:
+                low = mid + 1
+        else:  # Right half is sorted
+            if arr[mid] < key <= arr[high]:
+                low = mid + 1
+            else:
+                high = mid - 1
+
+    return -1
+
+
 if __name__ == "__main__":
     arr = [5, 6, 7, 8, 9, 10, 1, 2, 3]
     key = 3
     print(search_in_rotated_sorted_array_naive(arr, key))  # Output: 8
     print(search_in_rotated_sorted_array_two_pass(arr, key))  # Output: 8
+    print(search_in_rotated_sorted_array_single_pass(arr, key))  # Output: 8
 
     arr = [3, 5, 1, 2]
     key = 6
     print(search_in_rotated_sorted_array_naive(arr, key))  # Output: -1
     print(search_in_rotated_sorted_array_two_pass(arr, key))  # Output: -1
+    print(search_in_rotated_sorted_array_single_pass(arr, key))  # Output: -1
 
     arr = [33, 42, 72, 99]
     key = 42
     print(search_in_rotated_sorted_array_naive(arr, key))  # Output: 1
     print(search_in_rotated_sorted_array_two_pass(arr, key))  # Output: 1
+    print(search_in_rotated_sorted_array_single_pass(arr, key))  # Output: 1
