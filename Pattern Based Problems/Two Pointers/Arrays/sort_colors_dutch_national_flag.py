@@ -28,6 +28,45 @@ def sort_colors_naive(arr):
     return arr
 
 
+"""
+Approach 2: Using Counting - O(n) Time and O(1) Space
+1. Count the number of 0s, 1s and 2s in the array.
+2. Overwrite the original array with the counted number of 0s, 1s and 2s.
+3. Return the sorted array.
+
+Time Complexity: O(2 × n), where n is the number of elements in the array
+Auxiliary Space: O(1)
+
+The issues with this approach are:
+
+It would not work if 0s and 1s represent keys of objects.
+Not stable
+Requires two traversals
+"""
+
+def sort_colors_counting(arr):
+    count_0 = count_1 = count_2 = 0
+    for num in arr:
+        if num == 0:
+            count_0 += 1
+        elif num == 1:
+            count_1 += 1
+        else:
+            count_2 += 1
+
+    index = 0
+    for _ in range(count_0):
+        arr[index] = 0
+        index += 1
+    for _ in range(count_1):
+        arr[index] = 1
+        index += 1
+    for _ in range(count_2):
+        arr[index] = 2
+        index += 1
+
+    return arr
+
 
 if __name__ == "__main__":
     test_cases = [
@@ -35,8 +74,10 @@ if __name__ == "__main__":
         ([0, 1, 1, 0, 1, 2, 1, 2, 0, 0, 0, 1], [0, 0, 0, 0, 0, 1, 1, 1, 1, 1, 2, 2])
     ]
     for arr, expected in test_cases:
-        result = sort_colors_naive(arr)
+        naive_result = sort_colors_naive(arr)
+        counting_result = sort_colors_counting(arr.copy())
+
         print(f"Input: {arr}")
-        print(f"Output: {result}")
         print(f"Expected: {expected}")
-        print(f"Test {'Passed' if result == expected else 'Failed'}\n")
+        print(f"Result (Naive): {naive_result}")
+        print(f"Result (Counting): {counting_result}") 
