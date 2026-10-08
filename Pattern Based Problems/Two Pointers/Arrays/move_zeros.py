@@ -40,6 +40,20 @@ def move_zeros_brute_force(nums):
             nums.append(0)
     return nums
 
+"""
+Approach 2: Two Pointers - O(n) Time and O(1) Space
+1. Initialize two pointers, left and right, both pointing to the start of the array.
+2. Iterate through the array with the right pointer. If the element at the right pointer is not 0, swap the elements at the left and right pointers and increment both pointers. If the element at the right pointer is 0, just increment the right pointer.
+3. Return the modified array.
+"""
+
+def move_zeros_two_pointers(nums):
+    left = 0
+    for right in range(len(nums)):
+        if nums[right] != 0:
+            nums[left], nums[right] = nums[right], nums[left]
+            left += 1
+    return nums
 
 if __name__ == "__main__":
     test_cases = [
@@ -51,4 +65,4 @@ if __name__ == "__main__":
     ]
     for nums in test_cases:
         print("Brute Force:", move_zeros_brute_force(nums))
-        # print("Two Pointers:", move_zeros_two_pointers(nums))
+        print("Two Pointers:", move_zeros_two_pointers(nums))
