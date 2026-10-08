@@ -73,6 +73,9 @@ if __name__ == "__main__":
         ([0, 1, 2, 0, 1, 2], [0, 0, 1, 1, 2, 2]),
         ([0, 1, 1, 0, 1, 2, 1, 2, 0, 0, 0, 1], [0, 0, 0, 0, 0, 1, 1, 1, 1, 1, 2, 2])
     ]
+
+    # user input 
+    # arr = list(map(int, input("Enter the array elements (0s, 1s, 2s) separated by space: ").strip().split()))
     for arr, expected in test_cases:
         naive_result = sort_colors_naive(arr)
         counting_result = sort_colors_counting(arr.copy())
