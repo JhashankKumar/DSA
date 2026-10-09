@@ -34,3 +34,30 @@ Approach: Sliding Window - O(n) Time and O(1) Space
    c. Update max_count with the size of the current window (right - left + 1) if it is greater than max_count.
 5. Return max_count after the loop ends.
 """
+
+def find_max_consecutive_ones_k(nums, k):
+    max_count = 0
+    left = 0
+    zero_count = 0
+
+    for right in range(len(nums)):
+        if nums[right] == 0:
+            zero_count += 1
+
+        while zero_count > k:
+            if nums[left] == 0:
+                zero_count -= 1
+            left += 1
+
+        max_count = max(max_count, right - left + 1)
+
+    return max_count
+
+if __name__ == "__main__":
+    nums1 = [1, 1, 1, 0, 0, 0, 1, 1, 1, 1, 0]
+    k1 = 2
+    print(find_max_consecutive_ones_k(nums1, k1))  # Output: 6
+
+    nums2 = [0, 0, 1, 1, 0, 0, 1, 1, 1, 0, 1, 1, 0, 0, 0, 1, 1, 1, 1]
+    k2 = 3
+    print(find_max_consecutive_ones_k(nums2, k2))  # Output: 10
