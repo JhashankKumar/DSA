@@ -56,6 +56,18 @@ def is_palindrome(s):
 
     return True
 
+"""
+Approach 2: Using Regular Expressions - O(n) Time and O(n) Space
+The idea is to use regular expressions to remove all non-alphanumeric characters from the string and convert it to lowercase. 
+Then we can check if the cleaned string is equal to its reverse.  
+"""
+
+def is_palindrome_regex(s):
+    import re
+    cleaned = re.sub(r'[^a-zA-Z0-9]', '', s).lower()
+    return cleaned == cleaned[::-1]
+
+
 if __name__ == "__main__":
     test_cases = [
         ("A man, a plan, a canal: Panama", True),
@@ -67,5 +79,12 @@ if __name__ == "__main__":
     ]
 
     for s, expected in test_cases:
-        result = is_palindrome(s)
-        print(f"Input: {s}\nOutput: {result}\nExpected: {expected}\n{'Pass' if result == expected else 'Fail'}\n")
+        result_two_pointers = is_palindrome(s)
+        result_regex = is_palindrome_regex(s)
+
+        print(f"Input: {s}")
+        print(f"Output (Two Pointers): {result_two_pointers}")
+        print(f"Output (Regex): {result_regex}")
+        print(f"Expected: {expected}")
+        print(f"Test Two Pointers {'Passed' if result_two_pointers == expected else 'Failed'}")
+        print(f"Test Regex {'Passed' if result_regex == expected else 'Failed'}\n")
