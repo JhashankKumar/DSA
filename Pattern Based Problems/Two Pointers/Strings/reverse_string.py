@@ -29,6 +29,23 @@ def reverse_string_backward_traversal(s):
         result += s[i]
     return result
 
+"""
+Approach 2: Two Pointers - O(n) Time and O(1) Space
+Start from both ends of the string and keep swapping characters while moving toward the center. 
+Each swap places the correct character in its reversed position, and when both pointers meet in 
+the middle, the entire string becomes reversed.
+"""
+def reverse_string_two_pointers(s):
+    s = list(s)  # Convert string to list for mutability
+    left, right = 0, len(s) - 1
+
+    while left < right:
+        s[left], s[right] = s[right], s[left]  # Swap characters
+        left += 1
+        right -= 1
+
+    return ''.join(s)  # Convert list back to string
+
 
 if __name__ == "__main__":
     test_cases = [
@@ -40,10 +57,10 @@ if __name__ == "__main__":
     ]
     for s, expected in test_cases:
         result_backward = reverse_string_backward_traversal(s)
-        # result_two_pointers = reverse_string_two_pointers(s)
+        result_two_pointers = reverse_string_two_pointers(s)
         print(f"Input: {s}")
         print(f"Output (Backward Traversal): {result_backward}")
-        # print(f"Output (Two Pointers): {result_two_pointers}")
+        print(f"Output (Two Pointers): {result_two_pointers}")
         print(f"Expected: {expected}")
         print(f"Test Backward Traversal {'Passed' if result_backward == expected else 'Failed'}")
-        # print(f"Test Two Pointers {'Passed' if result_two_pointers == expected else 'Failed'}\n")
+        print(f"Test Two Pointers {'Passed' if result_two_pointers == expected else 'Failed'}\n")
