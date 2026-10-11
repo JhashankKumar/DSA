@@ -67,6 +67,16 @@ def is_palindrome_regex(s):
     cleaned = re.sub(r'[^a-zA-Z0-9]', '', s).lower()
     return cleaned == cleaned[::-1]
 
+"""
+Approach 3: Using Python's Built-in Functions - O(n) Time and O(n) Space
+The idea is to use built-in functions to filter out non-alphanumeric characters and convert the string to lowercase. Then we can check if the cleaned string is equal to its reverse.   
+"""
+
+def is_palindrome_builtin(s):
+    # cleaned = ''.join(filter(str.isalnum, s)).lower()
+    cleaned = ''.join(c.lower() for c in s if c.isalnum())
+    return cleaned == cleaned[::-1]
+
 
 if __name__ == "__main__":
     test_cases = [
@@ -81,10 +91,12 @@ if __name__ == "__main__":
     for s, expected in test_cases:
         result_two_pointers = is_palindrome(s)
         result_regex = is_palindrome_regex(s)
-
+        result_builtin = is_palindrome_builtin(s)
         print(f"Input: {s}")
         print(f"Output (Two Pointers): {result_two_pointers}")
         print(f"Output (Regex): {result_regex}")
+        print(f"Output (Built-in): {result_builtin}")
         print(f"Expected: {expected}")
         print(f"Test Two Pointers {'Passed' if result_two_pointers == expected else 'Failed'}")
-        print(f"Test Regex {'Passed' if result_regex == expected else 'Failed'}\n")
+        print(f"Test Regex {'Passed' if result_regex == expected else 'Failed'}")
+        print(f"Test Built-in {'Passed' if result_builtin == expected else 'Failed'}\n")
