@@ -46,6 +46,13 @@ def reverse_string_two_pointers(s):
 
     return ''.join(s)  # Convert list back to string
 
+"""
+Approach 3: Using Python's Built-in Functions - O(n) Time and O(n) Space
+The idea is to use built-in reverse method to reverse the string. If built-in method  for string reversal does not exist, then convert string to array or list and use their built-in method for reverse. Then convert it back to string.
+"""
+
+def reverse_string_builtin(s):
+    return s[::-1]
 
 if __name__ == "__main__":
     test_cases = [
@@ -58,9 +65,12 @@ if __name__ == "__main__":
     for s, expected in test_cases:
         result_backward = reverse_string_backward_traversal(s)
         result_two_pointers = reverse_string_two_pointers(s)
+        result_builtin = reverse_string_builtin(s)
         print(f"Input: {s}")
         print(f"Output (Backward Traversal): {result_backward}")
         print(f"Output (Two Pointers): {result_two_pointers}")
+        print(f"Output (Built-in): {result_builtin}")
         print(f"Expected: {expected}")
         print(f"Test Backward Traversal {'Passed' if result_backward == expected else 'Failed'}")
-        print(f"Test Two Pointers {'Passed' if result_two_pointers == expected else 'Failed'}\n")
+        print(f"Test Two Pointers {'Passed' if result_two_pointers == expected else 'Failed'}")
+        print(f"Test Built-in {'Passed' if result_builtin == expected else 'Failed'}\n")
