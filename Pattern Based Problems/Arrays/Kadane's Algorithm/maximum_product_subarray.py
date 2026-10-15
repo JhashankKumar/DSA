@@ -59,3 +59,16 @@ def max_product(nums):
         result = max(result, max_so_far)
 
     return result
+
+
+if __name__ == "__main__":
+    # Test cases
+    nums1 = [2, 3, -2, 4]
+    print(max_product(nums1))  # Output: 6
+
+    nums2 = [-2, 0, -1]
+    print(max_product(nums2))  # Output: 0
+
+    nums3 = [-2, 3, -4]
+    print(max_product(nums3))  # Output: 24
+
