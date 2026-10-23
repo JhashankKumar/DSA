@@ -82,3 +82,38 @@ stack.push(2)
 print(stack.top())  # Output: 2
 print(stack.pop())  # Output: 2
 print(stack.empty())  # Output: False
+
+"""
+Approach: Stack using one queue
+1. We can use a single queue to implement a stack. Let's call it queue.
+2. For the push operation, we can enqueue the new element into the queue and then
+   rotate the queue by dequeuing all elements except the new one and enqueuing them back. This way, the new element will be at the front of the queue.
+3. For the pop operation, we can simply dequeue from the queue.
+4. For the top operation, we can peek at the front of the queue.
+5. For the empty operation, we can check if the queue is empty.
+"""
+
+class MyStackOneQueue:
+    def __init__(self):
+        self.queue = []
+
+    def push(self, x):
+        self.queue.append(x)
+        for _ in range(len(self.queue) - 1):
+            self.queue.append(self.queue.pop(0))
+
+    def pop(self):
+        return self.queue.pop(0)
+
+    def top(self):
+        return self.queue[0]
+
+    def empty(self):
+        return not self.queue
+
+stack_one_queue = MyStackOneQueue()
+stack_one_queue.push(1)
+stack_one_queue.push(2)
+print(stack_one_queue.top())  # Output: 2
+print(stack_one_queue.pop())  # Output: 2
+print(stack_one_queue.empty())  # Output: False
