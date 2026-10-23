@@ -50,10 +50,40 @@ def product_except_self(nums):
     return output
 
 
+"""
+Approach 2: Using Two Arrays - O(n) Time and O(n) Space
+1. We can use two additional arrays to store the prefix and suffix products for each element.
+2. In the first pass, we can calculate the prefix product for each element and store it in the prefix array.
+3. In the second pass, we can calculate the suffix product for each element and store it in the suffix array.
+4. Finally, we can multiply the corresponding prefix and suffix products to get the final output array.
+5. This approach uses O(n) extra space for the prefix and suffix arrays, but it is straightforward to implement and understand.
+"""
+
+def product_except_self_with_extra_space(nums):
+    n = len(nums)
+    prefix = [1] * n
+    suffix = [1] * n
+
+    # Calculate prefix products
+    for i in range(1, n):
+        prefix[i] = prefix[i - 1] * nums[i - 1]
+
+    # Calculate suffix products
+    for i in range(n - 2, -1, -1):
+        suffix[i] = suffix[i + 1] * nums[i + 1]
+
+    # Calculate output by multiplying prefix and suffix products
+    for i in range(n):
+        prefix[i] = prefix[i] * suffix[i]
+
+    return prefix
+
 if __name__ == "__main__":
     # Example usage:
     nums1 = [1, 2, 3, 4]
     print(product_except_self(nums1))  # Output: [24, 12, 8, 6]
+    print(product_except_self_with_extra_space(nums1))  # Output: [24, 12, 8, 6]
 
     nums2 = [-1, 1, 0, -3, 3]
     print(product_except_self(nums2))  # Output: [0, 0, 9, 0, 0]
+    print(product_except_self_with_extra_space(nums2))  # Output: [0, 0, 9, 0, 0]
