@@ -1,31 +1,31 @@
 # Koko eating bananas problem
 """
-Koko loves to eat bananas. There are n piles of bananas, the ith pile has piles[i] bananas. The guards have gone and will come back in h hours.
+Koko loves to eat bananas. There are n piles of bananas, the ith pile has piles[i] bananas. 
+The guards have gone and will come back in h hours.
 
-Koko can decide her bananas-per-hour eating speed of k. Each hour, she chooses some pile of bananas and eats k bananas from that pile. If the pile has less than k bananas, she eats all of them instead and will not eat any more bananas during this hour.
+Koko can decide her bananas-per-hour eating speed of k. 
+Each hour, she chooses some pile of bananas and eats k bananas from that pile. 
+If the pile has less than k bananas, she eats all of them instead and will not 
+eat any more bananas during this hour.
 
-Koko likes to eat slowly but still wants to finish eating all the bananas before the guards return.
+Koko likes to eat slowly but still wants to finish eating all the bananas before the 
+guards return.
 
 Return the minimum integer k such that she can eat all the bananas within h hours.
 
- 
-
 Example 1:
-
 Input: piles = [3,6,7,11], h = 8
 Output: 4
-Example 2:
 
+Example 2:
 Input: piles = [30,11,23,4,20], h = 5
 Output: 30
-Example 3:
 
+Example 3:
 Input: piles = [30,11,23,4,20], h = 6
 Output: 23
- 
 
 Constraints:
-
 1 <= piles.length <= 104
 piles.length <= h <= 109
 1 <= piles[i] <= 109
@@ -33,10 +33,51 @@ piles.length <= h <= 109
 
 """
 Approach: Binary Search on Answer
-1. The minimum eating speed k can be 1 (if Koko eats 1 banana per hour) and the maximum eating speed k can be the maximum number of bananas in any pile (since Koko can eat all bananas in one hour if she chooses the largest pile).
+1. The minimum eating speed k can be 1 (if Koko eats 1 banana per hour) and the 
+maximum eating speed k can be the maximum number of bananas in any pile 
+(since Koko can eat all bananas in one hour if she chooses the largest pile).
 2. We can perform a binary search on the range of possible eating speeds (from 1 to max(piles)).
-3. For each mid value of k, we can calculate the total hours needed to eat all the bananas at that speed. If the total hours is less than or equal to h, we can try a smaller eating speed (move the right pointer to mid - 1). If the total hours is greater than h, we need to increase the eating speed (move the left pointer to mid + 1).
-4. Continue this process until the left pointer exceeds the right pointer. The left pointer will point to the minimum eating speed k that allows Koko to finish eating all the bananas within h hours.
+3. For each mid value of k, we can calculate the total hours needed to eat 
+all the bananas at that speed. If the total hours is less than or equal to h, 
+we can try a smaller eating speed (move the right pointer to mid - 1). 
+If the total hours is greater than h, we need to increase the eating speed 
+(move the left pointer to mid + 1).
+4. Continue this process until the left pointer exceeds the right pointer. 
+The left pointer will point to the minimum eating speed k that allows Koko to 
+finish eating all the bananas within h hours.
+"""
+
+"""
+Intuition
+We need to find the minimum eating speed k such that Koko can finish all bananas within h hours.
+The possible speed ranges from 1 to max(piles), so we can apply binary search on the answer.
+
+For each speed mid, calculate how many hours Koko needs:
+ceil(pile / mid) for every pile.
+
+If total hours <= h, the speed is sufficient → try a smaller speed.
+If total hours > h, the speed is too slow → increase the speed.
+Approach
+Set the search range:
+
+left = 1
+right = max(piles)
+Calculate mid and count the required hours for that speed.
+
+If hours <= h, store mid as a possible answer and search left:
+
+right = mid
+Otherwise, search right:
+
+left = mid + 1
+When left == right, it is the minimum valid eating speed.
+
+Complexity
+Time complexity:
+O(nlogm) - where n = number of piles and m = maximum pile size.
+
+Space complexity:
+O(1)
 """
 
 def min_eating_speed(piles: list[int], h: int) -> int:
