@@ -66,13 +66,22 @@ def calculate(s):
     result += sign * current_number
     return result
 
+"""
+Approach 2: Using In-built eval() function (Not allowed as per the problem statement)
+"""
+def calculate_with_eval(s):
+    return eval(s)
+    
 if __name__ == "__main__":
     # Test cases
     s1 = "1 + 1"
     print(calculate(s1))  # Output: 2
+    print(calculate_with_eval(s1))  # Output: 2
 
     s2 = " 2-1 + 2 "
     print(calculate(s2))  # Output: 3
+    print(calculate_with_eval(s2))  # Output: 3
 
     s3 = "(1+(4+5+2)-3)+(6+8)"
     print(calculate(s3))  # Output: 23
+    print(calculate_with_eval(s3))  # Output: 23
