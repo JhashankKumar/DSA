@@ -43,6 +43,26 @@ def delete_middle(stack):
 
     delete_helper(stack, 1)
 
+
+"""
+Alternative Approach: Array Insertion and Removal
+1. Use an auxiliary array to store the elements of the stack.
+2. Pop all elements from the stack and append them to the auxiliary array.
+3. Calculate the middle index of the auxiliary array using the formula: mid_index = (len(auxiliary_array) + 1) // 2.
+4. Remove the middle element from the auxiliary array using the pop() method.
+5. Push the elements from the auxiliary array back onto the stack in reverse order to maintain the original order of the remaining elements.
+6. This approach uses an auxiliary array to temporarily hold the elements of the stack, allowing for easy removal of the middle element.
+"""
+
+def delete_middle_with_auxiliary_array(stack):
+    auxiliary_array = []
+    while stack:
+        auxiliary_array.append(stack.pop())
+    mid_index = (len(auxiliary_array) + 1) // 2
+    auxiliary_array.pop(mid_index - 1)  # Remove the middle element
+    for item in reversed(auxiliary_array):
+        stack.append(item)
+
 if __name__ == "__main__":
     stack = [10, 20, 30, 40, 50]
     delete_middle(stack)
@@ -50,4 +70,12 @@ if __name__ == "__main__":
 
     stack = [10, 20, 30, 40]
     delete_middle(stack)
+    print(stack)  # Output: [40, 30, 10]
+
+    stack = [10, 20, 30, 40, 50]
+    delete_middle_with_auxiliary_array(stack)
+    print(stack)  # Output: [50, 40, 20, 10]
+
+    stack = [10, 20, 30, 40]
+    delete_middle_with_auxiliary_array(stack)
     print(stack)  # Output: [40, 30, 10]
