@@ -45,8 +45,18 @@ def reverse_stack(stack):
 
 
 """
-
+Approach: Array Insertion and Reversal
+1. Use an auxiliary array to store the elements of the stack.
+2. Pop all elements from the stack and append them to the auxiliary array.
+3. Push the elements from the reversed auxiliary array back onto the stack.
 """
+
+def reverse_stack_with_auxiliary_array(stack):
+    auxiliary_array = []
+    while stack:
+        auxiliary_array.append(stack.pop())
+    for item in auxiliary_array:
+        stack.append(item)
 
 
 
@@ -57,5 +67,13 @@ if __name__ == "__main__":
 
     stack = [3, 2, 1]
     reverse_stack(stack)
+    print(stack)  # Output: [1, 2, 3]
+
+    stack = [1, 2, 3, 4]
+    reverse_stack_with_auxiliary_array(stack)
+    print(stack)  # Output: [4, 3, 2, 1]
+
+    stack = [3, 2, 1]
+    reverse_stack_with_auxiliary_array(stack)
     print(stack)  # Output: [1, 2, 3]
 
