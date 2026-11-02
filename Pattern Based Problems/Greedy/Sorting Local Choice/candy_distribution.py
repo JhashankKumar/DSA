@@ -1,3 +1,4 @@
+# Candy Distribution Problem
 """
 There are n children standing in a line.
 
@@ -55,3 +56,10 @@ def candy_distribution_greedy(ratings):
             candies[i] = max(candies[i], candies[i + 1] + 1)
 
     return sum(candies)
+
+if __name__ == "__main__":
+    ratings1 = [1, 0, 2]
+    print(candy_distribution_greedy(ratings1))  # Output: 5
+
+    ratings2 = [1, 2, 2]
+    print(candy_distribution_greedy(ratings2))  # Output: 4
