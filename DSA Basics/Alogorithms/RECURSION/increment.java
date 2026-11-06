@@ -1,4 +1,3 @@
-package Recursion;
 
 public class increment {
     public static void printinc(int n){

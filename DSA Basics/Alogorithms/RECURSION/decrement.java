@@ -1,4 +1,4 @@
-package Recursion;
+
 
 public class decrement {
     public static void printDec(int n){

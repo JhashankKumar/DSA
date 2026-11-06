@@ -1,4 +1,3 @@
-package Recursion;
 /*it gives frist occurance of key value in an array */
 //it gives output as index value 
 public class frist_occurance {

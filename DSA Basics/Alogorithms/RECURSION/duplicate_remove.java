@@ -1,4 +1,3 @@
-package Recursion;
 public class duplicate_remove {
     public static void RemoveDuplicates(String str , int idx , StringBuilder newstr, boolean map[]){
         if(idx == str.length()){ // checking the length of the given string completed or not
