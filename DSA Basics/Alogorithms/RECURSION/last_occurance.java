@@ -1,4 +1,4 @@
-package RecursionBasics;
+package Recursion;
 /*here last occurance of a number is checking and index of last occurance is returned */
 public class last_occurance {
     public static int lastOccur(int arr[],int key,int i){

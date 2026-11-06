@@ -1,4 +1,4 @@
-package RecursionBasics;
+package Recursion;
 /*time complexity of optimised is O(log n) */
 public class optimised_power {
     public static int power(int a,int n){

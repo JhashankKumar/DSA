@@ -1,4 +1,4 @@
-package RecursionBasics;
+package Recursion;
 // checking array is sorted or not
 public class array_sort_check {
     public static boolean issorted(int arr[],int i){ // function call 
