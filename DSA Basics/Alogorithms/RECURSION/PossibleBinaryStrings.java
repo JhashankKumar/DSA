@@ -1,4 +1,3 @@
-package Recursion;
 //printing possible binary strings of size n without consecutive one's
 public class PossibleBinaryStrings {
     public static void PrintBinaryString(int n,int lastplace,String str){

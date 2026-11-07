@@ -1,4 +1,3 @@
-package Recursion;
 public class tiling {
     public static int waycount(int n ){//2 x n (floor size)
     //base case

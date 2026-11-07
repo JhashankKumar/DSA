@@ -1,4 +1,3 @@
-package Recursion;
 
 public class sum_of_n {
     public static int calcSum(int n){
