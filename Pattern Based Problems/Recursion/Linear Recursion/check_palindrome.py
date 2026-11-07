@@ -43,6 +43,19 @@ def is_palindrome(n: int) -> bool:
     # Recursive case: check the remaining digits by removing the first and last digits
     return is_palindrome(int(num_str[1:-1]))  # Convert back to int for the recursive call
 
+
+"""
+Approach 2: Using String Reversal
+1. We can also solve the problem by converting the number to a string and checking if it is equal to its reverse.
+2. If the string representation of the number is equal to its reverse, then the number is a palindrome; otherwise, it is not.
+3. This approach is simpler and avoids the need for recursion, but it may use more memory due to string manipulation.
+"""
+
+def is_palindrome_string(n: int) -> bool:
+    num_str = str(abs(n))  # Use absolute value to ignore the sign
+    return num_str == num_str[::-1]  # Check if the string is equal to its reverse
+
+
 if __name__ == "__main__":
     # Test cases
     print(is_palindrome(555))  # Output: True
@@ -50,3 +63,8 @@ if __name__ == "__main__":
     print(is_palindrome(-121))  # Output: True
     print(is_palindrome(0))  # Output: True
     print(is_palindrome(10))  # Output: False
+    print(is_palindrome_string(555))  # Output: True
+    print(is_palindrome_string(123))  # Output: False
+    print(is_palindrome_string(-121))  # Output: True
+    print(is_palindrome_string(0))  # Output: True
+    print(is_palindrome_string(10))  # Output: False
