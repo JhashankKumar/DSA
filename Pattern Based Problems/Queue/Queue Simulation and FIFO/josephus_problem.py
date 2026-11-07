@@ -36,10 +36,28 @@ def josephus(n: int, k: int) -> int:
         return (josephus(n - 1, k) + k - 1) % n + 1  # Adjust for eliminated person and convert to 1-based index
 
 """
-
+Approach 2: Using Queue
+1. We can also solve the Josephus problem using a queue to simulate the elimination process.
+2. We will initialize a queue with people numbered from 1 to n.
+3. We will repeatedly remove the first k-1 people from the front of the queue and append them to the back of the queue, simulating the elimination process.
+4. The k-th person will be removed from the queue, and we will continue this process until only one person remains in the queue.
+5. Finally, we will return the position of the last remaining person in the queue.
 """
+def josephus_queue(n: int, k: int) -> int:
+    from collections import deque
+
+    queue = deque(range(1, n + 1))  # Initialize a queue with people numbered from 1 to n
+
+    while len(queue) > 1:
+        for _ in range(k - 1):
+            queue.append(queue.popleft())  # Move the first k-1 people to the back of the queue
+        queue.popleft()  # Remove the k-th person from the queue
+
+    return queue[0]  # Return the position of the last remaining person in the queue
 
 if __name__ == "__main__":
     # Test cases
     print(josephus(5, 2))  # Output: 3
     print(josephus(7, 3))  # Output: 4
+    print(josephus_queue(5, 2))  # Output: 3
+    print(josephus_queue(7, 3))  # Output: 4
