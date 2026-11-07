@@ -70,3 +70,8 @@ def time_needed_to_buy_tickets(tickets: list[int], k: int) -> int:
                 break
 
     return time_taken  # Return the total time taken for the person at position k to finish buying tickets
+
+if __name__ == "__main__":
+    # Test cases
+    print(time_needed_to_buy_tickets([2, 3, 2], 2))  # Output: 6
+    print(time_needed_to_buy_tickets([5, 1, 1, 1], 0))  # Output: 8
