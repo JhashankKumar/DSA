@@ -43,6 +43,27 @@ def unique_paths(m: int, n: int) -> int:
         return unique_paths(m - 1, n) + unique_paths(m, n - 1)
 
 
+"""
+Approach 2: Use Dynamic Programming
+1. Create a 2D array dp of size m x n, initialized with 1s, since there is only one way to reach any cell in the first row or first column.
+2. Iterate through the grid starting from cell (1, 1) to cell (m-1, n-1).
+3. For each cell (i, j), update dp[i][j] as the sum of the unique paths from the cell above (i-1, j) and the cell to the left (i, j-1).
+4. The final result will be stored in dp[m-1][n-1], which represents the number of unique paths to reach the bottom-right corner.
+"""
+
+def unique_paths_dp(m: int, n: int) -> int:
+    # Create a 2D array dp of size m x n, initialized with 1s
+    dp = [[1] * n for _ in range(m)]
+
+    # Iterate through the grid starting from cell (1, 1)
+    for i in range(1, m):
+        for j in range(1, n):
+            # Update dp[i][j] as the sum of unique paths from the cell above and the cell to the left
+            dp[i][j] = dp[i - 1][j] + dp[i][j - 1]
+
+    # The final result is stored in dp[m-1][n-1]
+    return dp[m - 1][n - 1]
+
 # Example usage
 if __name__ == "__main__":
     m = 3
@@ -52,3 +73,6 @@ if __name__ == "__main__":
     p = 3
     q = 2
     print(f"Number of unique paths in a {p}x{q} grid is: {unique_paths(p, q)}")  # Output: 3
+
+    # Using dynamic programming approach
+    print(f"Number of unique paths in a {m}x{n} grid (DP) is: {unique_paths_dp(m, n)}")  # Output: 28   
