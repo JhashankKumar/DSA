@@ -45,6 +45,30 @@ def reverse_linked_list(head):
 
     return new_head
 
+
+"""
+Approach 2: Use Iteration
+1. Initialize three pointers: prev as None, current as head, and next_node as None.
+2. Iterate through the linked list until current is None.
+3. In each iteration, store the next node (current.next) in next_node.
+4. Reverse the link by setting current.next to prev.
+5. Move prev and current one step forward (prev = current, current = next_node).
+6. Return prev as the new head of the reversed list.
+"""
+
+def reverse_linked_list_iterative(head):
+    prev = None
+    current = head
+
+    while current is not None:
+        next_node = current.next  # Store the next node
+        current.next = prev       # Reverse the link
+        prev = current            # Move prev one step forward
+        current = next_node       # Move current one step forward
+
+    return prev  # New head of the reversed list
+
+
 if __name__ == "__main__":
     # Example usage
     class ListNode:
@@ -64,6 +88,22 @@ if __name__ == "__main__":
 
     # Print the reversed linked list
     current = reversed_head
+    while current:
+        print(current.val, end=" -> ")
+        current = current.next
+    print("None")  # Output: 5 -> 4 -> 3 -> 2 -> 1 -> None
+
+    # Reverse the linked list iteratively
+    head = ListNode(1)
+    head.next = ListNode(2)
+    head.next.next = ListNode(3)
+    head.next.next.next = ListNode(4)
+    head.next.next.next.next = ListNode(5)
+
+    reversed_head_iterative = reverse_linked_list_iterative(head)
+
+    # Print the reversed linked list iteratively
+    current = reversed_head_iterative
     while current:
         print(current.val, end=" -> ")
         current = current.next
