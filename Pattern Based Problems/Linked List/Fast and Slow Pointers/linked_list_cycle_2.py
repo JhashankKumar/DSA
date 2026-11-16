@@ -64,6 +64,27 @@ def detectCycle(head) -> ListNode | None:
 
     return None
 
+"""
+Alternative Approach:
+1. Use a set to keep track of visited nodes.
+2. Traverse the linked list, and for each node, check if it is already in the set. If it is, return that node as the start of the cycle. If not, add the node to the set and continue traversing.
+3. If the end of the list is reached (i.e., the current node is None), return None as there is no cycle.
+4. This approach uses O(n) space, where n is the number of nodes in the linked list.
+"""
+
+def detectCycleWithSet(head) -> ListNode | None:
+    visited = set()
+    current = head
+
+    while current:
+        if current in visited:
+            return current
+        visited.add(current)
+        current = current.next
+
+    return None
+
+
 if __name__ == "__main__":
     # Create a linked list with a cycle: 3 -> 2 -> 0 -> -4 -> 2 (cycle)
     head = ListNode(3)
@@ -77,5 +98,18 @@ if __name__ == "__main__":
 
     if cycle_node:
         print(f"Cycle detected at node with value: {cycle_node.val}")
+    else:
+        print("No cycle detected.")
+
+    # Create a linked list without a cycle: 1 -> 2 -> 3
+    head_no_cycle = ListNode(1)
+    head_no_cycle.next = ListNode(2)
+    head_no_cycle.next.next = ListNode(3)
+
+    # Detect the cycle
+    cycle_node_no_cycle = detectCycle(head_no_cycle)
+
+    if cycle_node_no_cycle:
+        print(f"Cycle detected at node with value: {cycle_node_no_cycle.val}")
     else:
         print("No cycle detected.")
