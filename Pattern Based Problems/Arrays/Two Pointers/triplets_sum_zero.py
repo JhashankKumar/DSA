@@ -42,8 +42,26 @@ Approach 2: Using Sorting and Two Pointers - O(n^2) Time and O(1) Space
 4. If such a pair is found, return the indices of the triplet. If the loop ends without finding any triplet, return an empty list.
 """
 
-
-
+def triplet_sum_zero_two_pointers(arr):
+    n = len(arr)
+    result = []
+    arr_sorted = sorted((value, index) for index, value in enumerate(arr))
+    
+    for i in range(n - 2):
+        left = i + 1
+        right = n - 1
+        while left < right:
+            current_sum = arr_sorted[i][0] + arr_sorted[left][0] + arr_sorted[right][0]
+            if current_sum == 0:
+                result.append(sorted([arr_sorted[i][1], arr_sorted[left][1], arr_sorted[right][1]]))
+                left += 1
+                right -= 1
+            elif current_sum < 0:
+                left += 1
+            else:
+                right -= 1
+                
+    return result
 
 if __name__ == "__main__":
     test_cases = [
@@ -57,3 +75,10 @@ if __name__ == "__main__":
         print(f"Output: {result}")
         print(f"Expected: {expected}")
         print(f"Test {'Passed' if result == expected else 'Failed'}\n")  
+
+    for arr, expected in test_cases:
+        result = triplet_sum_zero_two_pointers(arr)
+        print(f"Input: {arr}")
+        print(f"Output: {result}")
+        print(f"Expected: {expected}")
+        print(f"Test {'Passed' if result == expected else 'Failed'}\n")
